@@ -498,50 +498,58 @@ function App() {
         <div className="container">
           <h2 className="section-title">Get In Touch</h2>
 
-          <div className="contact-content">
-            <p>
-              Let's talk about everything!
-              <br />
-              I'm always excited to work on new projects and collaborate with
-              amazing people. Whether you have a project in mind, want to
-              discuss opportunities, or just want to say hello, I'd love to hear
-              from you!
-            </p>
+          <div className="contact-layout">
+            {/* Left side - Big Message with Decorative Background */}
+            <div className="contact-message-side">
+              <div className="message-decoration">💬</div>
+              <h3 className="message-title">Let's talk about everything!</h3>
+              <p className="message-text">
+                I'm always excited to work on new projects and collaborate with
+                amazing people. Whether you have a project in mind, want to
+                discuss opportunities, or just want to say hello, I'd love to
+                hear from you!
+              </p>
 
-            <div className="contact-methods">
-              <a
-                href={`mailto:${portfolioData.email}`}
-                className="contact-method"
-              >
-                <span className="icon">📧</span>
-                <span>Email</span>
-              </a>
-              <a
-                href={portfolioData.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-method"
-              >
-                <span className="icon">
-                  <GithubIcon size={22} />
-                </span>
-                <span>GitHub</span>
-              </a>
-              <a
-                href={portfolioData.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-method"
-              >
-                <span className="icon">
-                  <LinkedinIcon size={22} />
-                </span>
-                <span>LinkedIn</span>
-              </a>
+              {/* Social Links in Left Panel */}
+              <div className="contact-social-links">
+                <a
+                  href={`mailto:${portfolioData.email}`}
+                  className="social-link"
+                  title="Email"
+                >
+                  <span className="social-icon">📧</span>
+                  <span>Email</span>
+                </a>
+                <a
+                  href={portfolioData.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                  title="GitHub"
+                >
+                  <span className="social-icon">
+                    <GithubIcon size={20} />
+                  </span>
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href={portfolioData.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                  title="LinkedIn"
+                >
+                  <span className="social-icon">
+                    <LinkedinIcon size={20} />
+                  </span>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+              <div className="message-accent"></div>
             </div>
 
-            {/* Contact Form */}
-            <div className="contact-form-wrapper">
+            {/* Right side - Form */}
+            <div className="contact-form-side">
               <form className="contact-form">
                 <h3>Send me a message</h3>
                 <div className="form-group">
@@ -579,7 +587,7 @@ function App() {
                   <textarea
                     id="message"
                     name="message"
-                    rows="5"
+                    rows="4"
                     placeholder="Tell me about your project or just say hello..."
                     required
                   ></textarea>

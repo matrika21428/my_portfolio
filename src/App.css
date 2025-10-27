@@ -600,41 +600,139 @@ body {
 }
 
 /* Contact Section */
-.contact-content {
-  max-width: 800px;
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
+  align-items: stretch;
 }
 
-.contact-content p {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  margin-bottom: 3rem;
+/* Left Side - Decorative Message */
+.contact-message-side {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+  padding: 3rem;
+  border-radius: 1.5rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-lg);
 }
 
-/* Contact Form */
-.contact-form-wrapper {
-  max-width: 600px;
-  margin: 3rem auto 0;
+.message-decoration {
+  font-size: 6rem;
+  opacity: 0.2;
+  position: absolute;
+  top: -20px;
+  right: 20px;
+}
+
+.message-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+.message-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+
+/* Social Links in Left Panel */
+.contact-message-side .contact-social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-message-side .social-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s;
+  flex: 1;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-message-side .social-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.contact-message-side .social-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-message-side .social-link span:last-child {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.message-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+}
+
+/* Right Side - Form and Social Links */
+.contact-form-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .contact-form {
   background: linear-gradient(135deg, #ffffff 0%, #dbeafe 100%);
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 1rem;
   box-shadow: var(--shadow-lg);
-  text-align: left;
 }
 
 .contact-form h3 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: var(--text-primary);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .form-group label {
@@ -648,10 +746,10 @@ body {
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.875rem 1rem;
+  padding: 0.75rem 1rem;
   border: 2px solid var(--border-color);
   border-radius: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-family: inherit;
   transition: border-color 0.3s;
   background: var(--bg-light);
@@ -666,12 +764,12 @@ body {
 
 .form-group textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 80px;
 }
 
 .submit-btn {
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 0.875rem 1.5rem;
   background: var(--primary-color);
   color: white;
   border: none;
@@ -694,9 +792,8 @@ body {
 
 .contact-methods {
   display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .contact-method {
@@ -973,6 +1070,34 @@ body {
 
   .contact-methods {
     flex-direction: column;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-message-side {
+    min-height: 300px;
+    padding: 2rem;
+  }
+
+  .message-title {
+    font-size: 2rem;
+  }
+
+  .message-decoration {
+    font-size: 4rem;
+  }
+
+  .contact-social-links {
+    flex-direction: column;
+  }
+
+  .social-link {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
   }
 
   .uiux-card {
